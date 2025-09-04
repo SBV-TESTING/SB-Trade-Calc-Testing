@@ -311,6 +311,12 @@ let favArr = [];
             }
             }
         }
+        const local_storage_version = `v1`;
+        const savedVersion = localStorage.getItem("ls_v");
+        if(local_storage_version !== savedVersion) {
+            localStorage.clear();
+            localStorage.setItem("ls_v", local_storage_version);
+        }
         itemSelection[1].querySelector(".favorites").innerHTML = localStorage.getItem("favorite-itemsO");
         Array.from(itemSelection[1].getElementsByClassName("favorited")).forEach(favorite => {
             Array.from(itemSelection[1].querySelectorAll(".fav-btn")).forEach(elem => {
